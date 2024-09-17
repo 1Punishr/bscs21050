@@ -15,7 +15,14 @@
             <div id="profile" class="font-bold text-4xl" >
                 Anas Profile
             </div>
-            <ul id="tabs" class="flex flex-row items-center gap-4 font-semibold text-sm"></ul>
+            <ul id="tabs" class="flex flex-row items-center gap-4 font-semibold text-sm">
+                <li class="transition-all hover:text-neutral-400"><a href="#about">About</a></li>
+                <li class="transition-all hover:text-neutral-400"><a href="#skills">Skills</a></li>
+                <li class="transition-all hover:text-neutral-400"><a href="#projects">Projects</a></li>
+                <li class="transition-all hover:text-neutral-400"><a href="#achievements">Achievements</a></li>
+                <li class="transition-all hover:text-neutral-400"><a href="#degrees">Degrees</a></li>
+                <li class="transition-all hover:text-neutral-400"><a href="#social">Social</a></li>
+            </ul>
         </nav>
     </header>
 
@@ -156,57 +163,6 @@
     <footer class="bg-neutral-950 text-white py-5">
         <p class="text-center">&copy; 2024 Muhammad Anas. All rights reserved.</p>
     </footer>
-
-    <script>
-        let data = {
-            header:{
-                title:"Anas Profile",
-                tabs:[
-                    {
-                        title:"About",
-                        link:"#about"
-                    },
-                    {
-                        title:"Skills",
-                        link:"#skills"
-                    },
-                    {
-                        title:"Projects",
-                        link:"#projects"
-                    },
-                    {
-                        title:"Degrees",
-                        link:"#degrees"
-                    },
-                    {
-                        title:"Social",
-                        link:"#social"
-                    }
-                ]
-            }
-        }
-
-        function populateHeader(){
-           
-            let tab = document.getElementById("tabs");
-            data.header.tabs.forEach((items)=>{
-                const li_node=document.createElement("li");
-                const a_node=document.createElement("a");
-                a_node.href=items.link;
-                a_node.classList.add("transition-all");
-                a_node.classList.add("hover:text-neutral-400");
-                const text_node = document.createTextNode(items.title);
-                a_node.appendChild(text_node);
-                li_node.appendChild(a_node);
-                tab.appendChild(li_node);
-            })
-        }
-      
-            populateHeader();
-        
-
-    </script>
-    
 
 </body>
 </html>

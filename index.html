@@ -12,7 +12,9 @@
 <body class="w-full bg-[url('background.jpg')]">
     <header class="fixed border-b border-white z-[99999] w-full p-4 bg-neutral-950 text-white">
         <nav class="flex justify-between items-center" >
-            <div id="profile" class="font-bold text-4xl" ></div>
+            <div id="profile" class="font-bold text-4xl" >
+                Anas Profile
+            </div>
             <ul id="tabs" class="flex flex-row items-center gap-4 font-semibold text-sm"></ul>
         </nav>
     </header>
@@ -185,8 +187,7 @@
         }
 
         function populateHeader(){
-            let profile = document.getElementById("profile");
-            profile.innerText=data.header.title;
+           
             let tab = document.getElementById("tabs");
             data.header.tabs.forEach((items)=>{
                 const li_node=document.createElement("li");

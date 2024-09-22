@@ -69,50 +69,8 @@
     </section>
 
     <section id="projects" class="bg-neutral-950 text-white py-16">
-      <div class="w-[60%] mx-auto">
-        <h2 class="text-5xl font-bold mt-3 mb-3">Projects</h2>
-        <div class="mx-5 flex flex-row items-center gap-8 mt-6">
-          <article
-            class="w-[50%] h-36 transition-all px-4 py-1 pb-2 text-sm font-bold bg-gradient-to-r from-neutral-800 via-neutral-900 to-neutral-800 rounded-lg border-2 border-neutral-900 hover:from-neutral-900 hover:via-neutral-800 hover:to-neutral-900 hover:border-neutral-800"
-          >
-            <h3 class="text-2xl">Inventory Management System</h3>
-            <p>Date: 2023-06-15<br>
-              Developed an inventory management system using .NET for backend
-              operations, integrated with Python for AI-based forecasting.
-            </p>
-          </article>
-          <article
-            class="w-[50%] h-36 transition-all px-4 py-1 pb-2 text-sm font-bold bg-gradient-to-r from-neutral-800 via-neutral-900 to-neutral-800 rounded-lg border-2 border-neutral-900 hover:from-neutral-900 hover:via-neutral-800 hover:to-neutral-900 hover:border-neutral-800"
-          >
-            <h3 class="text-2xl">VR Space Shooting Game</h3>
-            <p>Date: 2024-04-20<br>
-              A VR game where players engage in space battles. Developed with
-              Unity and C#.
-            </p>
-          </article>
-        </div>
-        <div class="mx-5 flex flex-row items-center gap-8 mt-6">
-          <article
-            class="w-[50%] h-36 transition-all px-4 py-1 pb-2 text-sm font-bold bg-gradient-to-r from-neutral-800 via-neutral-900 to-neutral-800 rounded-lg border-2 border-neutral-900 hover:from-neutral-900 hover:via-neutral-800 hover:to-neutral-900 hover:border-neutral-800"
-          >
-            <h3 class="text-2xl">Ham Muqaam (Addressing System)</h3>
-            <p>Date: 2023-08-12</p>
-            <p>
-              An addressing system using GIS Skills. Developed in python
-              libraries i.e Folium, Shapes, Matplotlib etc.
-            </p>
-          </article>
-          <article
-            class="w-[50%] h-36 transition-all px-4 py-1 pb-2 text-sm font-bold bg-gradient-to-r from-neutral-800 via-neutral-900 to-neutral-800 rounded-lg border-2 border-neutral-900 hover:from-neutral-900 hover:via-neutral-800 hover:to-neutral-900 hover:border-neutral-800"
-          >
-            <h3 class="text-2xl">Library Management System</h3>
-            <p>Date: 2022-12-09</p>
-            <p>
-              A website to manage operations of a library. Developed with
-              Python(Django), MySQL, HTML, Tailwind CSS and Javascript.
-            </p>
-          </article>
-        </div>
+      <div id="project"  class="w-[60%] mx-auto">
+        
       </div>
     </section>
 
@@ -279,22 +237,22 @@
         
         ],
         projects:[
-            {
+            [{
                 title:"Inventory Management System",
                 description:"Date: 2023-06-15\nDeveloped an inventory management system using .NET for backend operations, integrated with Python for AI-based forecasting."
             },
             {
                 title:"VR Space Shooting Game",
                 description:"Date: 2024-04-20\nA VR game where players engage in space battles. Developed with Unity and C#."
-            },
-            {
+            }],
+            [{
                 title:"Ham Muqaam (Addressing System)",
                 description:"Date: 2023-08-12\nAn addressing system using GIS Skills. Developed in python libraries i.e Folium, Shapes, Matplotlib etc."
             },
             {
                 title:"Library Management System",
                 description:"Date: 2022-12-09\nA website to manage operations of a library. Developed with Python(Django), MySQL, HTML, Tailwind CSS and Javascript."
-            }
+            }]
         ]
       };
 
@@ -369,11 +327,63 @@
         
       }
       function populateProjects(){
-        
+            let projects = document.getElementById("project")
+            let h2 = document.createElement("h2");
+            h2.classList.add("text-5xl");
+            h2.classList.add("font-bold");
+            h2.classList.add("mt-3");
+            h2.classList.add("mb-3");
+            let h2Text = document.createTextNode("Projects");
+            h2.append(h2Text);
+            projects.appendChild(h2);
+
+            data.projects.forEach((item)=>{
+                let div = document.createElement("div");
+                div.classList.add("mx-5");
+                div.classList.add("mt-5");
+                div.classList.add("flex");
+                div.classList.add("flex-row");
+                div.classList.add("items-center");
+                div.classList.add("gap-8");
+                item.forEach(x=>{
+                    let article = document.createElement("article");
+                    article.classList.add("w-[50%]");
+                    article.classList.add("h-36");
+                    article.classList.add("transition-all");
+                    article.classList.add("px-4");
+                    article.classList.add("py-1");
+                    article.classList.add("pb-2");
+                    article.classList.add("text-sm");
+                    article.classList.add("font-bold");
+                    article.classList.add("bg-gradient-to-r");
+                    article.classList.add("from-neutral-800");
+                    article.classList.add("via-neutral-900");
+                    article.classList.add("to-neutral-800");
+                    article.classList.add("rounded-lg");
+                    article.classList.add("border-2");
+                    article.classList.add("border-neutral-900");
+                    article.classList.add("hover:from-neutral-900");
+                    article.classList.add("hover:via-neutral-800");
+                    article.classList.add("hover:to-neutral-900");
+                    article.classList.add("hover:border-neutral-800");
+                    let h3 = document.createElement("h3");
+                    h3.classList.add("text-2xl");
+                    let h3Text = document.createTextNode(x.title);
+                    h3.appendChild(h3Text);
+                    article.appendChild(h3);
+                    let p = document.createElement("p");
+                    let pText = document.createTextNode(x.description);
+                    p.appendChild(pText);
+                    article.appendChild(p);
+                    div.appendChild(article);
+                    projects.appendChild(div);
+                })
+            })
       }
       populateHeader();
       populateAbout();
       populateSkills();
+      populateProjects();
 
 
     </script>
